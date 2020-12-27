@@ -22,9 +22,6 @@ font-awesome 4.7.0
 ####
 
 
-
-project for adding moneycore event
-
 Change the configuration of your Database (name db, port ...) in the same configuration file "src/main/resources/application.properties"
 
 You will not have to create any DB,it will be created automatically with name:salaries.
