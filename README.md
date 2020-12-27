@@ -1,5 +1,5 @@
 # MiniProject
-# event-project
+
 project employee
 
 Installation, Configuration &  test
@@ -22,7 +22,7 @@ font-awesome 4.7.0
 ####
 
 
-# event-project
+
 project for adding moneycore event
 
 Change the configuration of your Database (name db, port ...) in the same configuration file "src/main/resources/application.properties"
