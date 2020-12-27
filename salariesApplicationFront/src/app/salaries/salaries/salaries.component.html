@@ -1,0 +1,86 @@
+<div class="body" >
+    <div class="mx-4">
+  
+      <div class="row justify-content-center rowtitle" style="margin-top:20px ;">
+        <div class="col-5 "> 
+        </div>
+        <div class="col-7 ">  
+           <h5 class="title">  Liste des Salaries  </h5>
+        </div> 
+      </div>
+
+      <form  [formGroup]="searchSalarieForm" novalidate>
+        <div class="row justify-content-center rowtitle" style="margin-top:20px ;">
+          <div  class="col-4">
+            <div class="form-group ">
+              <mat-form-field>
+                <input (input)="onSearch()" type="text" matInput placeholder=" Nom Salarie"  style="width:80%"
+                formControlName="nomSalarie"
+                >
+              </mat-form-field>
+            </div>
+          </div>  
+        </div>
+      </form> 
+
+      <div  class="row" dir="ltr">
+        <div class="col-10"></div>         
+        <div class="col-2">        
+          <button (click)="addSalaries()"  class="btn btn-default">
+            <em  > 
+              <span>
+                Ajouter Salarie
+              </span>
+            </em>
+          </button>
+       </div>
+      </div>
+     
+  
+   <div class="mat-elevation-z8 table" style="margin-top: 5px; " >
+   
+      <mat-table dir="ltr" [dataSource]="dataSource" >
+
+          <ng-container matColumnDef="1" > 
+            <mat-header-cell *matHeaderCellDef style=" margin-left: 10px;" >
+              Matricule
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element; " style=" margin-left: 10px;" > 
+              {{element.matricule}}
+             </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="2" >
+            <mat-header-cell *matHeaderCellDef>Nom
+          </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="3">
+            <mat-header-cell *matHeaderCellDef> Prenom   
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">  
+               {{element.prenom}}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="4" >
+            <mat-header-cell *matHeaderCellDef > Date Naissance</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                {{element.dateNaissance | date:'d/M/y'}}
+             </mat-cell>
+          </ng-container>
+       
+          <ng-container matColumnDef="5" >
+            <mat-header-cell *matHeaderCellDef > Adresse</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                {{element.adresse}}
+            </mat-cell>
+          </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>     
+    </div>  
+  </div>
+</div>

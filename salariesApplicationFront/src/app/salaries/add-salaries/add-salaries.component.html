@@ -1,0 +1,78 @@
+<div class="page-container" >
+    <div class="row white"></div>
+    <div class="container col-md-7">
+      <div class="row  my-form rounded">
+        <div>
+
+          <div  style="text-align:center;color:#9A2828; margin-top: 40px; ">  
+            <h5 class="title">
+              Ajout Salaries
+            </h5>
+          </div>
+
+          <section>
+            <form novalidate [formGroup]="salariesForm" (ngSubmit)="onSubmit()">
+              <div class="example-container row">
+
+                  <mat-form-field class="col-sm-5">
+                      <input matInput placeholder="Matricule" formControlName="matricule" required>
+                      <mat-error>
+                        <span *ngIf="salariesForm.controls['matricule']?.errors?.required ">  Veuillez
+                          entrer une adresse mail</span>
+                        <span *ngIf="salariesForm.controls['matricule']?.errors?.matriculeTaken ">  Un
+                          utilisateur avec cet email existe déjà</span>
+                      </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="col-sm-5">
+                      <input matInput placeholder="Nom" formControlName="nom" required>
+                      <mat-error>Champs obligatoire</mat-error>
+                  </mat-form-field>      
+
+                  <br><br><br><br>
+
+                  <mat-form-field class="col-sm-5">
+                      <input matInput placeholder="Prenom" formControlName="prenom" required>
+                      <mat-error>Champs obligatoire</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="col-sm-5">
+                      <input matInput type="date" required formControlName="dateNaissance">
+                      <mat-error>date naissance invalide</mat-error>
+                  </mat-form-field>
+
+                  <br><br><br><br>
+
+                  <mat-form-field class="col-sm-4">
+                      <input matInput placeholder="Adresse" formControlName="adresse">
+                      <mat-error>adresse invalide</mat-error>
+                  </mat-form-field>
+
+              </div>
+              <div class="row">
+
+                <div class="col-sm-3">
+                </div>
+
+                <div class="col-sm-3">
+                  <button type="button" class="btn btn-danger" type="reset" >Annuler
+                  </button>
+                </div>
+                  
+                <div class="col-sm-3">
+                  <button type="submit" class="btn btn-dark" id="myBtn"  [disabled]="salariesForm.invalid">Ajouter  
+                  </button>
+                </div>
+              
+                <div class="col-sm-3">
+                </div>
+    
+              </div>
+            </form>
+          </section>   
+        </div>
+      </div>
+    </div>
+  </div>
+
+
